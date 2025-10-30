@@ -3,8 +3,6 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   build-and-deploy:
@@ -14,25 +12,21 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
       
-    - name: Setup Node.js
+    - name: Setup Node.js 22
       uses: actions/setup-node@v4
       with:
         node-version: '22.12.0'
         
-    - name: Verify Node version
-      run: node --version
-        
-    - name: Clean install dependencies
+    - name: Install dependencies
       run: |
         rm -rf node_modules package-lock.json
-        npm cache clean --force
-        npm install --no-package-lock
+        npm install
       
     - name: Build
       run: npm run build
       
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v4
       if: github.ref == 'refs/heads/main'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
