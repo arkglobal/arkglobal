@@ -11,7 +11,7 @@ const Header: React.FC = () => {
     <header className="header">
       <div className="nav-container">
         <div className="logo-container">
-          <img src="public/ARK.png" className="logo" alt="ARK² Logo" />
+          <img src="./public/ARK.png" className="logo" alt="ARK² Logo" />
         </div>
         <nav className="desktop-nav">
           <a href="#home">Home</a>
