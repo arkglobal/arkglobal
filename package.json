@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://KeshavVyas.github.io/ark2-website",
+  "homepage": "https://arkglobal.github.io/ark2-website",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
