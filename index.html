@@ -38,13 +38,20 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <video autoplay muted loop class="hero-video">
-            <source src="ARK2.mp4" type="video/mp4">
-        </video>
+    <section class="hero" id="home">
+        <iframe 
+            class="hero-video" 
+            src="https://netorg18354711-my.sharepoint.com/personal/admin_ark2construct_com/_layouts/15/embed.aspx?UniqueId=6f4d8270-7f4d-4171-8c9e-8c80f0038986&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create"
+            frameborder="0" 
+            allowfullscreen 
+            allow="autoplay">
+        </iframe>
         <div class="hero-overlay">
             <h1>ARK² CONSTRUCTION SERVICES</h1>
-            <p>Professional Construction Solutions</p>
+            <p>Excellence in Construction Solutions</p>
+            <div class="hero-cta">
+                <button class="hero-button" onclick="document.querySelector('.about-section').scrollIntoView({behavior: 'smooth'})">Discover More</button>
+            </div>
         </div>
     </section>
 
