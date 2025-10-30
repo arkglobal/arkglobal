@@ -1,15 +1,76 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/public/ARK.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="ARK2 - Professional Solutions & Services" />
-    <meta name="keywords" content="ARK2, professional, business, solutions" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARK2 - Professional Solutions</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #242424; color: white; }
+        .header { background: #1a1a1a; padding: 1rem; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+        .logo-container { display: flex; align-items: center; gap: 1rem; }
+        .logo { height: 50px; }
+        .company-name { font-size: 1.5rem; font-weight: bold; }
+        .nav { display: flex; gap: 2rem; }
+        .nav-link { color: #646cff; text-decoration: none; }
+        .nav-link:hover { color: #535bf2; }
+        .main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .hero { text-align: center; padding: 4rem 0; }
+        .hero-title { font-size: 3rem; margin-bottom: 1rem; }
+        .hero-subtitle { font-size: 1.2rem; margin-bottom: 2rem; color: #ccc; }
+        .cta-button { background: #646cff; color: white; border: none; padding: 1rem 2rem; font-size: 1rem; border-radius: 8px; cursor: pointer; }
+        .cta-button:hover { background: #535bf2; }
+        .features { padding: 4rem 0; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .feature-card { background: #1a1a1a; padding: 2rem; border-radius: 8px; text-align: center; }
+        .feature-card h3 { margin-bottom: 1rem; color: #646cff; }
+        .footer { text-align: center; padding: 2rem; background: #1a1a1a; margin-top: 4rem; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="public/ARK.png" class="logo" alt="ARK2 Logo">
+                <span class="company-name">ARK2</span>
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <h1 class="hero-title">Professional Solutions</h1>
+            <p class="hero-subtitle">Excellence in every detail</p>
+            <button class="cta-button">Get Started</button>
+        </section>
+
+        <section class="features">
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Quality</h3>
+                    <p>Delivering exceptional results with attention to detail</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Innovation</h3>
+                    <p>Cutting-edge solutions for modern challenges</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Reliability</h3>
+                    <p>Trusted partnerships built on consistent performance</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 ARK2. All rights reserved.</p>
+    </footer>
+</body>
 </html>
