@@ -17,13 +17,13 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '20'
-        cache: 'npm'
+        node-version: '22'
         
     - name: Clean install dependencies
       run: |
         rm -rf node_modules package-lock.json
-        npm install
+        npm cache clean --force
+        npm install --no-package-lock
       
     - name: Build
       run: npm run build
