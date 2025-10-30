@@ -84,7 +84,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            border: none;
+            object-fit: cover;
             pointer-events: none;
         }
         
@@ -249,13 +249,16 @@
     </header>
 
     <section class="hero" id="home">
-        <iframe 
+        <video 
             class="hero-video" 
-            src="https://netorg18354711-my.sharepoint.com/personal/admin_ark2construct_com/_layouts/15/embed.aspx?UniqueId=6f4d8270-7f4d-4171-8c9e-8c80f0038986&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create"
-            frameborder="0" 
-            allowfullscreen 
-            allow="autoplay">
-        </iframe>
+            autoplay 
+            muted 
+            loop 
+            playsinline>
+            <source src="public/ARK2.mp4" type="video/mp4">
+            <source src="public/ARK2.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
         <div class="hero-overlay">
             <h1>ARK² CONSTRUCTION SERVICES</h1>
             <p>Excellence in Construction Solutions</p>
