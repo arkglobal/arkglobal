@@ -3,14 +3,14 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WhatsAppFloat from '../components/WhatsAppFloat';
 
-const About: React.FC = () => {
+const JobVacancy: React.FC = () => {
   return (
     <>
       <Header />
       <main className="page-content">
         <div className="container">
-          <h1>About ARK Global Services</h1>
-          <p>Learn more about our company, mission, and values.</p>
+          <h1>Job Vacancy</h1>
+          <p>Join our team at ARK Global Services. Current job openings and career opportunities.</p>
         </div>
       </main>
       <Footer />
@@ -19,4 +19,4 @@ const About: React.FC = () => {
   );
 };
 
-export default About;
+export default JobVacancy;

@@ -1,87 +1,138 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import '../styles/header.css';
 
 const Header: React.FC = () => {
-  const [mobileNavOpen, setMobileNavOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
-  const toggleNav = () => {
-    setMobileNavOpen(!mobileNavOpen)
-  }
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleDropdownHover = (dropdown: string | null) => {
+    setActiveDropdown(dropdown);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setIsMenuOpen(false);
+        setActiveDropdown(null);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
-    <header className="header">
-      <div className="nav-container">
-        <div className="logo-container">
-          <Link to="/">
-            <img src="public/ARK.png" className="logo" alt="ARK² Logo" />
-          </Link>
-        </div>
-        <nav className="nav">
-          <div className="nav-item">
+    <>
+      <header className="header">
+        <div className="nav-container">
+          <img src="/ARK.png" alt="ARK Logo" className="logo" />
+          
+          <nav className="nav">
             <Link to="/">Home</Link>
-          </div>
-          <div className="nav-item">
-            <a href="#services">Services ▼</a>
-            <div className="dropdown">
-              <Link to="/estimating-services">Estimating Services</Link>
-              <Link to="/submittal-services">Submittal Services</Link>
-              <Link to="/estimating-software">Estimating Software</Link>
+            
+            <div 
+              className="dropdown"
+              onMouseEnter={() => handleDropdownHover('services')}
+              onMouseLeave={() => handleDropdownHover(null)}
+            >
+              <div className="dropdown-trigger">
+                <span>Services</span>
+                <span className="dropdown-arrow">▼</span>
+              </div>
+              <div className={`dropdown-content ${activeDropdown === 'services' ? 'active' : ''}`}>
+                <Link to="/estimating-services">Estimating Services</Link>
+                <Link to="/submittal-services">Submittal Services</Link>
+                <Link to="/estimating-software">Estimating Softwares</Link>
+              </div>
             </div>
-          </div>
-          <div className="nav-item">
-            <a href="#company">Company ▼</a>
-            <div className="dropdown">
-              <Link to="/about">About</Link>
-              <Link to="/client-benefits">Client Benefits</Link>
-              <Link to="/american-vendors">American Vendors</Link>
-              <Link to="/job-vacancy">Job Vacancy</Link>
+            
+            <div 
+              className="dropdown"
+              onMouseEnter={() => handleDropdownHover('company')}
+              onMouseLeave={() => handleDropdownHover(null)}
+            >
+              <div className="dropdown-trigger">
+                <span>Company</span>
+                <span className="dropdown-arrow">▼</span>
+              </div>
+              <div className={`dropdown-content ${activeDropdown === 'company' ? 'active' : ''}`}>
+                <Link to="/about">About</Link>
+                <Link to="/client-benefits">Client Benefits</Link>
+                <Link to="/american-vendors">American Vendors</Link>
+                <Link to="/job-vacancy">Job Vacancy</Link>
+              </div>
             </div>
-          </div>
-          <div className="nav-item">
-            <a href="#tools">Tools ▼</a>
-            <div className="dropdown">
-              <Link to="/calendar">Calendar</Link>
-              <Link to="/proestimate">ProEstimate</Link>
+            
+            <div 
+              className="dropdown"
+              onMouseEnter={() => handleDropdownHover('tools')}
+              onMouseLeave={() => handleDropdownHover(null)}
+            >
+              <div className="dropdown-trigger">
+                <span>Tools</span>
+                <span className="dropdown-arrow">▼</span>
+              </div>
+              <div className={`dropdown-content ${activeDropdown === 'tools' ? 'active' : ''}`}>
+                <Link to="/calendar">Calendar</Link>
+                <Link to="/proestimate">ProEstimate</Link>
+              </div>
             </div>
-          </div>
-          <div className="nav-item">
-            <a href="#legal">Legal ▼</a>
-            <div className="dropdown">
-              <Link to="/terms">Terms and Conditions</Link>
-              <Link to="/privacy">Privacy Policy</Link>
-              <Link to="/refund">Refund Policy</Link>
+            
+            <div 
+              className="dropdown"
+              onMouseEnter={() => handleDropdownHover('legal')}
+              onMouseLeave={() => handleDropdownHover(null)}
+            >
+              <div className="dropdown-trigger">
+                <span>Legal</span>
+                <span className="dropdown-arrow">▼</span>
+              </div>
+              <div className={`dropdown-content ${activeDropdown === 'legal' ? 'active' : ''}`}>
+                <Link to="/terms">Terms and Conditions</Link>
+                <Link to="/privacy-policy">Privacy Policy</Link>
+                <Link to="/refund-policy">Refund Policy</Link>
+              </div>
             </div>
-          </div>
-          <div className="nav-item">
+            
             <Link to="/contact">Contact Us</Link>
-          </div>
-          <a href="tel:+13123800712" className="phone">+1 (312) 380-0712</a>
-        </nav>
-        <button className="nav-toggle" onClick={toggleNav}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-      <div className={`mobile-nav ${mobileNavOpen ? 'active' : ''}`}>
-        <Link to="/" onClick={() => setMobileNavOpen(false)}>Home</Link>
-        <Link to="/calendar" onClick={() => setMobileNavOpen(false)}>Calendar</Link>
-        <Link to="/proestimate" onClick={() => setMobileNavOpen(false)}>ProEstimate</Link>
-        <Link to="/client-benefits" onClick={() => setMobileNavOpen(false)}>Client Benefits</Link>
-        <Link to="/estimating-services" onClick={() => setMobileNavOpen(false)}>Estimating Services</Link>
-        <Link to="/submittal-services" onClick={() => setMobileNavOpen(false)}>Submittal Services</Link>
-        <Link to="/about" onClick={() => setMobileNavOpen(false)}>About</Link>
-        <Link to="/terms" onClick={() => setMobileNavOpen(false)">Terms and Conditions</Link>
-        <Link to="/contact" onClick={() => setMobileNavOpen(false)}>Contact Us</Link>
-        <Link to="/refund" onClick={() => setMobileNavOpen(false)">Refund Policy</Link>
-        <Link to="/american-vendors" onClick={() => setMobileNavOpen(false)}>American Vendors</Link>
-        <Link to="/estimating-software" onClick={() => setMobileNavOpen(false)">Estimating Software</Link>
-        <Link to="/job-vacancy" onClick={() => setMobileNavOpen(false)">Job Vacancy</Link>
-        <Link to="/privacy" onClick={() => setMobileNavOpen(false)">Privacy Policy</Link>
-        <a href="tel:+13123800712" onClick={() => setMobileNavOpen(false)}>+1 (312) 380-0712</a>
-      </div>
-    </header>
-  )
-}
+            <Link to="tel:+13123800712" className="phone">+1 (312) 380-0712</Link>
+          </nav>
 
-export default Header
+          <button 
+            className={`nav-toggle ${isMenuOpen ? 'active' : ''}`}
+            onClick={toggleMenu}
+            aria-label="Toggle navigation menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </header>
+      
+      <nav className={`mobile-nav ${isMenuOpen ? 'active' : ''}`}>
+        <Link to="/" onClick={toggleMenu}>Home</Link>
+        <Link to="/estimating-services" onClick={toggleMenu}>Estimating Services</Link>
+        <Link to="/submittal-services" onClick={toggleMenu}>Submittal Services</Link>
+        <Link to="/estimating-software" onClick={toggleMenu}>Estimating Softwares</Link>
+        <Link to="/about" onClick={toggleMenu}>About</Link>
+        <Link to="/client-benefits" onClick={toggleMenu}>Client Benefits</Link>
+        <Link to="/american-vendors" onClick={toggleMenu}>American Vendors</Link>
+        <Link to="/job-vacancy" onClick={toggleMenu}>Job Vacancy</Link>
+        <Link to="/calendar" onClick={toggleMenu}>Calendar</Link>
+        <Link to="/proestimate" onClick={toggleMenu}>ProEstimate</Link>
+        <Link to="/terms" onClick={toggleMenu}>Terms and Conditions</Link>
+        <Link to="/privacy-policy" onClick={toggleMenu}>Privacy Policy</Link>
+        <Link to="/refund-policy" onClick={toggleMenu}>Refund Policy</Link>
+        <Link to="/contact" onClick={toggleMenu}>Contact Us</Link>
+      </nav>
+    </>
+  );
+};
+
+export default Header;
