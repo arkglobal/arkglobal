@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/arkglobal/static/css/main.f9ecac39.css",
+    "main.js": "/arkglobal/static/js/main.f8497040.js",
+    "index.html": "/arkglobal/index.html",
+    "main.f9ecac39.css.map": "/arkglobal/static/css/main.f9ecac39.css.map",
+    "main.f8497040.js.map": "/arkglobal/static/js/main.f8497040.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f9ecac39.css",
+    "static/js/main.f8497040.js"
+  ]
+}
