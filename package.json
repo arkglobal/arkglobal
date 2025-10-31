@@ -1,7 +1,7 @@
 {
   "name": "ark-global",
   "version": "1.0.0",
-  "homepage": "https://arkglobal.github.io/ARK-Global",
+  "homepage": "https://arkglobal.github.io/arkglobal",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
