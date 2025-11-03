@@ -257,6 +257,8 @@ body {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  max-width: 800px;
+  width: 90%;
 }
 
 .hero-video {
@@ -430,7 +432,7 @@ body {
 
 /* Software Section */
 .software-section {
-  padding: 8rem 3rem;
+  padding: 8rem 0;
   background: var(--light-gray);
 }
 
@@ -441,6 +443,7 @@ body {
   align-items: center;
   max-width: 1400px;
   margin: 0 auto;
+  padding: 0 3rem;
 }
 
 .software-list {
@@ -483,12 +486,11 @@ body {
   text-align: center;
   background: white;
   padding: 2rem;
-  box-shadow: var(--shadow-light);
 }
 
 .center-logo {
-  height: 80px;
-  width: 80px;
+  height: 100px;
+  width: 100px;
   object-fit: contain;
 }
 
@@ -499,7 +501,6 @@ body {
 .rafty-img {
   width: 100%;
   max-width: 300px;
-  box-shadow: var(--shadow-light);
 }
 
 /* Services Section */
@@ -677,6 +678,12 @@ body {
   box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
   z-index: 1000;
   transition: all 0.3s ease;
+}
+
+.whatsapp-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .whatsapp-float:hover {
