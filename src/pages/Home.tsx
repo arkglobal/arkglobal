@@ -6,7 +6,7 @@ import WhatsAppFloat from '../components/WhatsAppFloat';
 const Home: React.FC = () => {
   const [counters, setCounters] = useState({ cost: 0, projects: 0, hours: 0 });
   const [currentService, setCurrentService] = useState(0);
-  const [currentClientIndex, setCurrentClientIndex] = useState(0);
+
   const [hasAnimated, setHasAnimated] = useState(false);
 
   const services = [
