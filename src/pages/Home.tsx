@@ -7,6 +7,7 @@ const Home: React.FC = () => {
   const [counters, setCounters] = useState({ cost: 0, projects: 0, hours: 0 });
   const [currentService, setCurrentService] = useState(0);
   const [currentClientIndex, setCurrentClientIndex] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   const services = [
     {
@@ -47,20 +48,33 @@ const Home: React.FC = () => {
   ];
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      const interval = setInterval(() => {
-        setCounters(prev => ({
-          cost: prev.cost < 100 ? prev.cost + 3 : 100,
-          projects: prev.projects < 3000 ? prev.projects + 100 : 3000,
-          hours: prev.hours < 12000 ? prev.hours + 400 : 12000
-        }));
-      }, 50);
-      
-      setTimeout(() => clearInterval(interval), 3000);
-    }, 500);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+            const interval = setInterval(() => {
+              setCounters(prev => ({
+                cost: prev.cost < 100 ? prev.cost + 3 : 100,
+                projects: prev.projects < 3000 ? prev.projects + 100 : 3000,
+                hours: prev.hours < 12000 ? prev.hours + 400 : 12000
+              }));
+            }, 50);
+            
+            setTimeout(() => clearInterval(interval), 3000);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
 
-    return () => clearTimeout(timer);
-  }, []);
+    const counterSection = document.querySelector('.counter-section');
+    if (counterSection) {
+      observer.observe(counterSection);
+    }
+
+    return () => observer.disconnect();
+  }, [hasAnimated]);
 
   useEffect(() => {
     const serviceInterval = setInterval(() => {
@@ -87,9 +101,6 @@ const Home: React.FC = () => {
       <section className="about-section">
         <div className="container">
           <div className="about-header">
-            <div className="support-image-container">
-              <img src="https://via.placeholder.com/80x80/e53e3e/ffffff?text=ARK" alt="Support" className="support-image" />
-            </div>
             <h2>ARK GLOBAL SERVICES</h2>
           </div>
           <div className="about-content">
@@ -163,18 +174,14 @@ const Home: React.FC = () => {
         <div className="container">
           <h2>Clients we have worked with</h2>
           <div className="clients-carousel">
-            <button className="carousel-btn prev" onClick={() => setCurrentClientIndex(prev => prev === 0 ? clients.length - 1 : prev - 1)}>‹</button>
-            <div className="clients-display">
-              {clients.slice(currentClientIndex, currentClientIndex + 3).concat(
-                currentClientIndex + 3 > clients.length ? clients.slice(0, (currentClientIndex + 3) - clients.length) : []
-              ).map((client, index) => (
+            <div className="clients-track">
+              {[...clients, ...clients, ...clients].map((client, index) => (
                 <div key={index} className="client-item">
                   <img src={client.logo} alt={client.name} className="client-logo" />
                   <div className="client-name">{client.name}</div>
                 </div>
               ))}
             </div>
-            <button className="carousel-btn next" onClick={() => setCurrentClientIndex(prev => (prev + 1) % clients.length)}>›</button>
           </div>
         </div>
       </section>
