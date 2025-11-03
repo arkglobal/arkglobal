@@ -258,8 +258,8 @@ body {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-  max-width: 800px;
-  width: 90%;
+  max-width: 1000px;
+  width: 95%;
 }
 
 .hero-video {
@@ -278,12 +278,6 @@ body {
 .about-header {
   text-align: center;
   margin-bottom: 2rem;
-}
-
-@media (max-width: 768px) {
-  .about-header {
-    text-align: left;
-  }
 }
 
 .about-section h2 {
@@ -454,8 +448,10 @@ body {
 }
 
 .software-list {
+  background: white;
   padding: 2rem;
   border-radius: 12px;
+  box-shadow: var(--shadow-light);
 }
 
 .software-list h3 {
@@ -489,7 +485,9 @@ body {
 
 .software-center {
   text-align: center;
+  background: white;
   padding: 2rem;
+  box-shadow: var(--shadow-light);
 }
 
 .center-logo {
