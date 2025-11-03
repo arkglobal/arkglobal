@@ -103,7 +103,7 @@
 .nav a {
   text-decoration: none;
   color: var(--dark-gray);
-  font-weight: 600;
+  font-weight: 500;
   padding: 0.8rem 1.2rem;
   border-radius: 12px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -359,7 +359,7 @@
   align-items: center;
   gap: 0.5rem;
   color: var(--dark-gray);
-  font-weight: 600;
+  font-weight: 500;
   padding: 0.8rem 1.2rem;
   border-radius: 12px;
   transition: all 0.3s ease;
