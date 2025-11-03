@@ -55,11 +55,11 @@ const Home: React.FC = () => {
             setHasAnimated(true);
             const interval = setInterval(() => {
               setCounters(prev => ({
-                cost: prev.cost < 100 ? prev.cost + 3 : 100,
-                projects: prev.projects < 3000 ? prev.projects + 100 : 3000,
-                hours: prev.hours < 12000 ? prev.hours + 400 : 12000
+                cost: prev.cost < 100 ? prev.cost + 2 : 100,
+                projects: prev.projects < 3000 ? prev.projects + 60 : 3000,
+                hours: prev.hours < 12000 ? prev.hours + 250 : 12000
               }));
-            }, 50);
+            }, 80);
             
             setTimeout(() => clearInterval(interval), 3000);
           }
@@ -95,6 +95,9 @@ const Home: React.FC = () => {
           <video className="hero-video" autoPlay muted loop playsInline>
             <source src="/ARKVideo.mp4" type="video/mp4" />
           </video>
+          <script>
+            document.querySelector('.hero-video').playbackRate = 1.25;
+          </script>
         </div>
       </section>
 

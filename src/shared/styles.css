@@ -14,7 +14,8 @@
 * { 
   margin: 0; 
   padding: 0; 
-  box-sizing: border-box; 
+  box-sizing: border-box;
+  transition: all 0.3s ease;
 }
 
 body {
@@ -279,6 +280,12 @@ body {
   margin-bottom: 2rem;
 }
 
+@media (max-width: 768px) {
+  .about-header {
+    text-align: left;
+  }
+}
+
 .about-section h2 {
   font-size: 2.2rem;
   font-weight: 700;
@@ -447,10 +454,8 @@ body {
 }
 
 .software-list {
-  background: white;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: var(--shadow-light);
 }
 
 .software-list h3 {
@@ -484,7 +489,6 @@ body {
 
 .software-center {
   text-align: center;
-  background: white;
   padding: 2rem;
 }
 

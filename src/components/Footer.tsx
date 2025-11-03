@@ -80,7 +80,7 @@ const Footer: React.FC = () => {
         
         <div className="footer-bottom">
           <div>
-            <p>&copy; 2024 ARK Global Services. All rights reserved.</p>
+            <p>&copy; 2024 ARK Global Private Limited. All Rights Reserved.</p>
 
           </div>
           <div className="footer-legal">
