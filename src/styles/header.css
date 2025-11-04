@@ -110,21 +110,9 @@
   font-size: 0.95rem;
   position: relative;
   overflow: hidden;
-  animation: buttonPulse 2s ease-in-out infinite;
 }
 
-@keyframes buttonPulse {
-  0%, 100% { 
-    transform: scale(1);
-    background: transparent;
-    color: var(--dark-gray);
-  }
-  50% { 
-    transform: scale(1.02);
-    background: var(--primary-red);
-    color: white;
-  }
-}
+
 
 .nav a::before {
   content: '';
@@ -374,7 +362,6 @@
   font-size: 0.95rem;
   cursor: pointer;
   background: transparent;
-  animation: buttonPulse 2s ease-in-out infinite;
 }
 
 .dropdown-trigger:hover {
