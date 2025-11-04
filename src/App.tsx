@@ -15,7 +15,7 @@ import AmericanVendors from './pages/AmericanVendors';
 import EstimatingSoftware from './pages/EstimatingSoftware';
 import JobVacancy from './pages/JobVacancy';
 import PrivacyPolicy from './pages/PrivacyPolicy';
-import More from './pages/More';
+
 import './shared/styles.css';
 
 const App: React.FC = () => {
@@ -37,7 +37,7 @@ const App: React.FC = () => {
         <Route path="/estimating-software" element={<EstimatingSoftware />} />
         <Route path="/job-vacancy" element={<JobVacancy />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/more" element={<More />} />
+
       </Routes>
     </Router>
   );
